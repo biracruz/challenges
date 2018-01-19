@@ -1,16 +1,10 @@
 #https://www.hackerrank.com/challenges/ctci-balanced-brackets/problem
 
-def is_pair(a, b):
-    pairs = {'{':'}', '[':']','(':')','}':'{', ']':'[', ')':'('}
-    if pairs[a] == b:
-        return True
-    else:
-        return False
-
 def is_matched(expression):
     stack = []
+    pairs = {'{':'}', '[':']','(':')','}':'{', ']':'[', ')':'('}
     for c in expression:
-        if stack and is_pair(stack[-1], c):
+        if stack and pairs[stack[-1]] == c:
             stack.pop()
         else:
             stack.append(c)
